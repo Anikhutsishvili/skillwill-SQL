@@ -1,11 +1,11 @@
 CREATE TABLE `student` (
   `student_ID` int PRIMARY KEY,
-  `first_name` varchar(255),
-  `last_name` varchar(255),
-  `Email` varchar(255),
-  `address` varchar(255),
-  `birth_date` date,
-  `sex` char,
+  `first_name` varchar(255) Not null,
+  `last_name` varchar(255) Not null,
+  `Email` varchar(255) Not null,
+  `address` varchar(255) Not null,
+  `birth_date` date Not null,
+  `sex` char Not null,
   `second_address` varchar(255),
   `flat_number` int,
   `uni_ID` int,
@@ -14,51 +14,51 @@ CREATE TABLE `student` (
 
 CREATE TABLE `lecturer` (
   `lecturer_ID` int PRIMARY KEY,
-  `first_name` varchar(255),
-  `last_name` varchar(255),
-  `Email` varchar(255),
-  `rank` varchar(255),
-  `subject` varchar(255),
-  `address` varchar(255),
-  `birth_date` date,
-  `sex` char,
-  `account_number` varchar(255),
-  `second_address` varchar(255),
+  `first_name` varchar(255)  Not null,
+  `last_name` varchar(255) Not null,
+  `Email` varchar(255) Not null,
+  `rank` varchar(255)  Not null,
+  `subject` varchar(255) Not null,
+  `address` varchar(255) Not null,
+  `birth_date` date Not null,
+  `sex` char Not null,
+  `account_number` varchar(255)  Not null,
+  `second_address` varchar(255)  Not null,
   `flat_number` int,
   `uni_ID` int
 );
 
 CREATE TABLE `manager` (
   `manager_ID` int PRIMARY KEY,
-  `first_name` varchar(255),
-  `last_name` varchar(255),
+  `first_name` varchar(255)  Not null,
+  `last_name` varchar(255)  Not null,
   `phone_number` varchar(255),
-  `Email` varchar(255),
+  `Email` varchar(255) Not null,
   `uni_ID` int
 );
 
 CREATE TABLE `university` (
   `uni_ID` int PRIMARY KEY,
-  `name` varchar(255)
+  `name` varchar(255) Not null
 );
 
 CREATE TABLE `faculty` (
   `faculty_ID` int PRIMARY KEY,
-  `faculty_name` varchar(255)
+  `faculty_name` varchar(255) Not null
 );
 
 CREATE TABLE `course` (
   `course_ID` int PRIMARY KEY,
-  `course_name` varchar(255),
+  `course_name` varchar(255) Not null Not null,
   `uni_ID` int
 );
 
 CREATE TABLE `subject` (
   `subject_ID` int PRIMARY KEY,
   `lecturer_ID` int,
-  `subject_name` varchar(255),
-  `start_date` datetime,
-  `end_date` datetime,
+  `subject_name` varchar(255)   Not null,
+  `start_date` datetime Not null,
+  `end_date` datetime Not null,
   `course_ID` int
 );
 
@@ -72,8 +72,8 @@ CREATE TABLE `lecturer_subjects` (
 
 CREATE TABLE `lecture` (
   `lecture_ID` int,
-  `lecture_name` varchar(255),
-  `subject_ID` int
+  `lecture_name` varchar(255)   Not null,
+  `subject_ID` int Not null
 );
 
 CREATE TABLE `lecture_schedule` (
